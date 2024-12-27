@@ -1,0 +1,140 @@
+@startuml
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define ARCHSTONE_COLOR #E6E6FA
+!define LEGEND_COLOR #E6E6FA
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+skinparam {
+    PackageBackgroundColor<<main>> MAIN_COLOR
+    PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+    PackageBackgroundColor<<archstone>> ARCHSTONE_COLOR
+    PackageBackgroundColor<<legend>> LEGEND_COLOR
+    ArrowColor #2F4F4F
+    PackageBorderColor #2F4F4F
+    NodeFontSize 12
+    NoteFontSize 11
+}
+
+title Demon's Souls - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {A} Archstone Boss
+        {D} Demon Boss
+        {M} Main Boss
+        {O} Optional Boss
+    end note
+}
+
+package "Tutorial" <<main>> {
+    [Vanguard] as Vanguard
+    note right: "{O} Tutorial Boss\nDifficulty: ★★★☆☆\nOptional First Encounter"
+    
+    [Dragon God (Tutorial)] as DragonTutorial
+    note right: "{M} Scripted Death\nDifficulty: N/A"
+}
+
+package "Boletarian Palace (1-1 to 1-4)" <<archstone>> {
+    [Phalanx] as Phalanx
+    note right: "{D} First Real Boss\nDifficulty: ★★☆☆☆\nLevel: 1-10"
+    
+    [Tower Knight] as TowerKnight
+    note right: "{D} Area Boss\nDifficulty: ★★★☆☆\nLevel: 15-25"
+    
+    [Penetrator] as Penetrator
+    note right: "{D} Major Boss\nDifficulty: ★★★★☆\nLevel: 30-40"
+    
+    [False King Allant] as FalseKing
+    note right: "{D} Archstone Boss\nDifficulty: ★★★★★\nLevel: 70-80"
+}
+
+package "Stonefang Tunnel (2-1 to 2-3)" <<archstone>> {
+    [Armor Spider] as Spider
+    note right: "{D} Area Boss\nDifficulty: ★★★☆☆\nLevel: 15-25"
+    
+    [Flamelurker] as Flamelurker
+    note right: "{D} Major Boss\nDifficulty: ★★★★★\nLevel: 30-40"
+    
+    [Dragon God] as DragonGod
+    note right: "{D} Puzzle Boss\nDifficulty: ★★☆☆☆\nLevel: 35-45"
+}
+
+package "Tower of Latria (3-1 to 3-3)" <<archstone>> {
+    [Fool's Idol] as Idol
+    note right: "{D} Area Boss\nDifficulty: ★★★☆☆\nLevel: 25-35"
+    
+    [Maneater] as Maneater
+    note right: "{D} Major Boss\nDifficulty: ★★★★★\nLevel: 35-45"
+    
+    [Old Monk] as OldMonk
+    note right: "{D} PvP Boss\nDifficulty: ★★★★☆\nLevel: 40-50"
+}
+
+package "Shrine of Storms (4-1 to 4-3)" <<archstone>> {
+    [Adjudicator] as Adjudicator
+    note right: "{D} Area Boss\nDifficulty: ★★★☆☆\nLevel: 25-35"
+    
+    [Old Hero] as OldHero
+    note right: "{D} Blind Boss\nDifficulty: ★★★★☆\nLevel: 35-45"
+    
+    [Storm King] as StormKing
+    note right: "{D} Gimmick Boss\nDifficulty: ★★★☆☆\nLevel: 40-50"
+}
+
+package "Valley of Defilement (5-1 to 5-3)" <<archstone>> {
+    [Leechmonger] as Leechmonger
+    note right: "{D} Area Boss\nDifficulty: ★★★☆☆\nLevel: 25-35"
+    
+    [Dirty Colossus] as Colossus
+    note right: "{D} Area Boss\nDifficulty: ★★★★☆\nLevel: 35-45"
+    
+    [Maiden Astraea] as Astraea
+    note right: "{D} Story Boss\nDifficulty: ★★★★☆\nLevel: 45-55"
+}
+
+package "The End Game" <<main>> {
+    [King Allant] as TrueKing
+    note right: "{M} True Final Boss\nDifficulty: ★★★★☆\nLevel: 80+"
+}
+
+' Main Story Progression
+Vanguard --> DragonTutorial
+DragonTutorial --> Phalanx
+Phalanx --> TowerKnight
+TowerKnight --> Penetrator
+Penetrator --> FalseKing
+
+' Archstone Progressions
+Phalanx -[#green]-> Spider : "Stonefang"
+Phalanx -[#green]-> Idol : "Latria"
+Phalanx -[#green]-> Adjudicator : "Storms"
+Phalanx -[#green]-> Leechmonger : "Defilement"
+
+' Individual Archstone Paths
+Spider --> Flamelurker
+Flamelurker --> DragonGod
+
+Idol --> Maneater
+Maneater --> OldMonk
+
+Adjudicator --> OldHero
+OldHero --> StormKing
+
+Leechmonger --> Colossus
+Colossus --> Astraea
+
+' End Game
+FalseKing --> TrueKing
+
+' Additional Notes
+note "Any Archstone can be tackled after Phalanx" as N2
+note "World Tendency affects difficulty" as N3
+note "Pure White/Black events available" as N4
+
+@enduml

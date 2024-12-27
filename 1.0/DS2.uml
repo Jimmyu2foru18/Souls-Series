@@ -1,0 +1,213 @@
+@startuml
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define DLC_COLOR #FF69B4
+!define LEGEND_COLOR #E6E6FA
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+skinparam {
+    PackageBackgroundColor<<main>> MAIN_COLOR
+    PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+    PackageBackgroundColor<<dlc>> DLC_COLOR
+    PackageBackgroundColor<<legend>> LEGEND_COLOR
+    ArrowColor #2F4F4F
+    PackageBorderColor #2F4F4F
+    NodeFontSize 12
+    NoteFontSize 11
+}
+
+title Dark Souls 2 - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {G} Great Soul Bearer
+        {O} Optional Boss
+        {M} Main Boss
+        {K} Key Boss
+    end note
+}
+
+package "Things Betwixt" <<main>> {
+    [Last Giant] as LastGiant
+    note right: "{M} First Boss\nDifficulty: ★★☆☆☆\nLevel: 1-15"
+}
+
+package "Forest of Fallen Giants" <<main>> {
+    [Pursuer] as Pursuer
+    note right: "{M} Early Challenge\nDifficulty: ★★★★☆\nLevel: 15-25"
+    
+    [Dragonrider] as Dragonrider
+    note right: "{M} Alternative First Boss\nDifficulty: ★★★☆☆\nLevel: 15-25"
+}
+
+package "Heide's Tower of Flame" <<optional>> {
+    [Old Dragonslayer] as Dragonslayer
+    note right: "{O} Optional Boss\nDifficulty: ★★★★☆\nLevel: 20-30"
+}
+
+package "No-Man's Wharf" <<optional>> {
+    [Flexile Sentry] as Flexile
+    note right: "{O} Path to Lost Bastille\nDifficulty: ★★★☆☆\nLevel: 25-35"
+}
+
+package "The Lost Bastille" <<main>> {
+    [Ruin Sentinels] as Sentinels
+    note right: "{M} Trio Boss\nDifficulty: ★★★★☆\nLevel: 30-40"
+    
+    [Belfry Gargoyles] as Gargoyles
+    note right: "{O} Optional Multi-Boss\nDifficulty: ★★★★☆\nLevel: 35-45"
+}
+
+package "Sinner's Rise" <<main>> {
+    [Lost Sinner] as Sinner
+    note right: "{G} Great Soul Bearer\nDifficulty: ★★★★☆\nLevel: 40-50"
+}
+
+package "Huntsman's Copse" <<main>> {
+    [Skeleton Lords] as SkeletonLords
+    note right: "{M} Multi-Boss\nDifficulty: ★★★☆☆\nLevel: 45-55"
+    
+    [Executioner's Chariot] as Chariot
+    note right: "{O} Optional Boss\nDifficulty: ★★★★☆\nLevel: 45-55"
+}
+
+package "Iron Keep" <<main>> {
+    [Smelter Demon] as Smelter
+    note right: "{O} Optional Challenge\nDifficulty: ★★★★★\nLevel: 50-60"
+    
+    [Old Iron King] as IronKing
+    note right: "{G} Great Soul Bearer\nDifficulty: ★★★★☆\nLevel: 55-65"
+}
+
+package "Shaded Woods" <<main>> {
+    [Scorpioness Najka] as Najka
+    note right: "{M} Path to Brightstone\nDifficulty: ★★★☆☆\nLevel: 50-60"
+}
+
+package "Brightstone Cove Tseldora" <<main>> {
+    [Duke's Dear Freja] as Freja
+    note right: "{G} Great Soul Bearer\nDifficulty: ★★★★☆\nLevel: 55-65"
+}
+
+package "The Gutter/Black Gulch" <<main>> {
+    [The Rotten] as Rotten
+    note right: "{G} Great Soul Bearer\nDifficulty: ★★★★☆\nLevel: 55-65"
+}
+
+package "Drangleic Castle" <<main>> {
+    [Looking Glass Knight] as Knight
+    note right: "{M} Castle Guardian\nDifficulty: ★★★★☆\nLevel: 70-80"
+    
+    [Twin Dragonriders] as TwinRiders
+    note right: "{M} Duo Boss\nDifficulty: ★★★★☆\nLevel: 70-80"
+}
+
+package "Shrine of Amana" <<main>> {
+    [Demon of Song] as DemonSong
+    note right: "{M} Area Boss\nDifficulty: ★★★★☆\nLevel: 75-85"
+}
+
+package "Undead Crypt" <<main>> {
+    [Velstadt, the Royal Aegis] as Velstadt
+    note right: "{K} King's Guardian\nDifficulty: ★★★★★\nLevel: 80-90"
+}
+
+package "Dragon Shrine" <<optional>> {
+    [Ancient Dragon] as AncientDragon
+    note right: "{O} Optional Super Boss\nDifficulty: ★★★★★\nLevel: 100+"
+}
+
+package "Throne of Want" <<main>> {
+    [Throne Defender & Watcher] as Throne
+    note right: "{M} Final Guardians\nDifficulty: ★★★★★\nLevel: 90-100"
+    
+    [Nashandra] as Nashandra
+    note right: "{M} Final Boss\nDifficulty: ★★★★★\nLevel: 90-100"
+    
+    [Aldia, Scholar of the First Sin] as Aldia
+    note right: "{O} True Final Boss\nDifficulty: ★★★★★\nLevel: 100+"
+}
+
+package "DLC: Crown of the Sunken King" <<dlc>> {
+    [Elana, Squalid Queen] as Elana
+    note right: "{O} DLC Boss\nDifficulty: ★★★★☆\nLevel: 90+"
+    
+    [Sinh, the Slumbering Dragon] as Sinh
+    note right: "{O} Dragon Boss\nDifficulty: ★★★★★\nLevel: 95+"
+    
+    [Graverobber Trio] as Graverobbers
+    note right: "{O} Challenge Boss\nDifficulty: ★★★★☆\nLevel: 90+"
+}
+
+package "DLC: Crown of the Old Iron King" <<dlc>> {
+    [Fume Knight] as Fume
+    note right: "{O} Hardest Boss\nDifficulty: ★★★★★\nLevel: 100+"
+    
+    [Sir Alonne] as Alonne
+    note right: "{O} Memory Boss\nDifficulty: ★★★★★\nLevel: 100+"
+    
+    [Blue Smelter Demon] as BlueSmelter
+    note right: "{O} Optional Boss\nDifficulty: ★★★★☆\nLevel: 95+"
+}
+
+package "DLC: Crown of the Ivory King" <<dlc>> {
+    [Aava, the King's Pet] as Aava
+    note right: "{O} Entry Boss\nDifficulty: ★★★★☆\nLevel: 95+"
+    
+    [Burnt Ivory King] as IvoryKing
+    note right: "{O} Final Crown Boss\nDifficulty: ★★★★★\nLevel: 100+"
+    
+    [Lud and Zallen] as TigerDuo
+    note right: "{O} Challenge Path\nDifficulty: ★★★★★\nLevel: 100+"
+}
+
+' Main Story Progression
+LastGiant --> Pursuer
+Pursuer --> Sentinels
+Sentinels --> Sinner
+Sinner --> IronKing
+IronKing --> Freja
+Freja --> Rotten
+Rotten --> Knight
+Knight --> TwinRiders
+TwinRiders --> DemonSong
+DemonSong --> Velstadt
+Velstadt --> Throne
+Throne --> Nashandra
+Nashandra --> Aldia
+
+' Optional Paths
+LastGiant -[#green]-> Dragonrider : "Alternative"
+Dragonrider -[#green]-> Dragonslayer : "Optional"
+Dragonrider -[#green]-> Flexile : "Optional"
+Sentinels -[#green]-> Gargoyles : "Optional"
+SkeletonLords -[#green]-> Chariot : "Optional"
+IronKing -[#green]-> Smelter : "Optional"
+Knight -[#green]-> AncientDragon : "Optional"
+
+' DLC Access and Progression
+Nashandra -[#green]-> Elana : "Sunken King"
+Nashandra -[#green]-> Fume : "Old Iron King"
+Nashandra -[#green]-> Aava : "Ivory King"
+
+' DLC Internal Progression
+Elana --> Sinh
+Elana -[#green]-> Graverobbers : "Optional"
+
+Fume -[#green]-> Alonne : "Memory"
+Fume -[#green]-> BlueSmelter : "Optional"
+
+Aava --> IvoryKing
+Aava -[#green]-> TigerDuo : "Challenge Path"
+
+' Additional Notes
+note "DLC keys required for access" as N2
+note "Complete base game first" as N3
+note "Crown trilogy recommended level 100+" as N4
+
+@enduml

@@ -1,0 +1,163 @@
+@startuml
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define DLC_COLOR #FF69B4
+!define LEGEND_COLOR #E6E6FA
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+skinparam {
+    PackageBackgroundColor<<main>> MAIN_COLOR
+    PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+    PackageBackgroundColor<<dlc>> DLC_COLOR
+    PackageBackgroundColor<<legend>> LEGEND_COLOR
+    ArrowColor #2F4F4F
+    PackageBorderColor #2F4F4F
+    NodeFontSize 12
+    NoteFontSize 11
+}
+
+title Elden Ring - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {L} Legendary Boss
+        {R} Remembrance Boss
+        {S} Shardbearing Boss
+    end note
+}
+
+package "Limgrave" <<main>> {
+    [Margit, the Fell Omen] <<difficulty_high>> as Margit
+    note right: "{S} Difficulty: ★★★★☆\nRecommended Level: 25-30"
+    
+    [Tree Sentinel] <<optional>> as TreeSentinel
+    note right: "Difficulty: ★★★★☆\nOptional but recommended\nLevel: 20+"
+    
+    [Godrick the Grafted] <<difficulty_high>> as Godrick
+    note right: "{S}{R} First Great Rune\nDifficulty: ★★★★☆\nLevel: 30-40"
+}
+
+package "Weeping Peninsula" <<optional>> {
+    [Leonine Misbegotten] as Leonine
+    note right: "Difficulty: ★★★☆☆\nRecommended Level: 20-25"
+}
+
+package "Liurnia of the Lakes" <<main>> {
+    [Rennala, Queen of the Full Moon] as Rennala
+    note right: "{S}{R} Second Great Rune\nDifficulty: ★★★☆☆\nLevel: 40-50"
+    
+    [Royal Knight Loretta] as Loretta
+    note right: "Difficulty: ★★★★☆\nLevel: 45-55"
+}
+
+package "Caelid" <<optional>> {
+    [Starscourge Radahn] as Radahn
+    note right: "{S}{R}{L} Festival Boss\nDifficulty: ★★★★★\nLevel: 60+"
+    
+    [Commander O'Neil] as ONeil
+    note right: "Difficulty: ★★★☆☆\nLevel: 55+"
+}
+
+package "Altus Plateau" <<main>> {
+    [Draconic Tree Sentinel] as DraconicSentinel
+    note right: "Difficulty: ★★★★☆\nLevel: 70+"
+    
+    [Godfrey, First Elden Lord (Golden Shade)] as GoldenGodfrey
+    note right: "{R} Difficulty: ★★★★☆\nLevel: 75+"
+}
+
+package "Mt. Gelmir" <<optional>> {
+    [Praetor Rykard] as Rykard
+    note right: "{S}{R} Lord of Blasphemy\nDifficulty: ★★★★☆\nLevel: 75-85"
+}
+
+package "Leyndell, Royal Capital" <<main>> {
+    [Morgott, the Omen King] as Morgott
+    note right: "{S}{R} Difficulty: ★★★★★\nLevel: 80-90"
+}
+
+package "Mountaintops of the Giants" <<main>> {
+    [Fire Giant] as FireGiant
+    note right: "{R} Difficulty: ★★★★★\nLevel: 90-100"
+}
+
+package "Crumbling Farum Azula" <<main>> {
+    [Dragonlord Placidusax] as Placidusax
+    note right: "{R}{L} Difficulty: ★★★★★\nLevel: 100-120"
+    
+    [Maliketh, the Black Blade] as Maliketh
+    note right: "{R} Difficulty: ★★★★★\nLevel: 100-120"
+}
+
+package "Consecrated Snowfield" <<optional>> {
+    [Commander Niall] as Niall
+    note right: "Difficulty: ★★★★☆\nLevel: 90-110"
+}
+
+package "Miquella's Haligtree" <<optional>> {
+    [Malenia, Blade of Miquella] as Malenia
+    note right: "{S}{R}{L} Hardest Boss\nDifficulty: ★★★★★\nLevel: 120-150"
+}
+
+package "Leyndell, Ashen Capital" <<main>> {
+    [Sir Gideon Ofnir] as Gideon
+    [Godfrey, First Elden Lord] as Godfrey
+    [Radagon of the Golden Order] as Radagon
+    [Elden Beast] as EldenBeast
+    note right: "Final Bosses\nDifficulty: ★★★★★\nLevel: 120-150"
+}
+
+package "DLC: Shadow of the Erdtree" <<dlc>> {
+    [Messmer the Impaler] as Messmer
+    note right: "{O} DLC Entry Boss\nDifficulty: ★★★★☆\nLevel: 100+"
+    
+    [Knight of Miquella] as MiquellaBoss
+    note right: "{O} Story Boss\nDifficulty: ★★★★★\nLevel: 120+"
+    
+    [Barbarian Knight] as Barbarian
+    note right: "{O} Optional Boss\nDifficulty: ★★★★☆\nLevel: 110+"
+    
+    [Guardian of the Eclipse] as Eclipse
+    note right: "{O} Major Boss\nDifficulty: ★★★★★\nLevel: 130+"
+    
+    [Mohgwyn Knight] as MohgwynBoss
+    note right: "{O} Optional Area Boss\nDifficulty: ★★★★★\nLevel: 125+"
+}
+
+' Main Story Progression
+Margit --> Godrick
+Godrick --> Rennala
+Rennala --> DraconicSentinel
+DraconicSentinel --> GoldenGodfrey
+GoldenGodfrey --> Morgott
+Morgott --> FireGiant
+FireGiant --> Maliketh
+Maliketh --> Gideon
+Gideon --> Godfrey
+Godfrey --> Radagon
+Radagon --> EldenBeast
+
+' Optional Paths
+TreeSentinel -[#green]-> Margit : "Optional"
+Leonine -[#green]-> Godrick : "Optional"
+Rennala -[#green]-> Radahn : "Optional"
+Loretta -[#green]-> DraconicSentinel : "Optional"
+ONeil -[#green]-> Radahn : "Optional"
+Rykard -[#green]-> Morgott : "Optional"
+Placidusax -[#green]-> Maliketh : "Optional"
+Niall -[#green]-> Malenia : "Required for Haligtree"
+Malenia -[#green]-> Maliketh : "Optional"
+
+' DLC Progression
+SoulOfCinder -[#green]-> Messmer : "DLC Entry"
+Messmer --> MiquellaBoss
+MiquellaBoss --> Eclipse
+Messmer -[#green]-> Barbarian : "Optional"
+Eclipse -[#green]-> MohgwynBoss : "Secret Area"
+
+@enduml

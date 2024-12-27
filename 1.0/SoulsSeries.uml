@@ -1,0 +1,142 @@
+@startuml
+!define MAIN_COLOR #FFD700
+!define DEMONS_COLOR #800080
+!define DS1_COLOR #4169E1
+!define DS2_COLOR #20B2AA
+!define DS3_COLOR #DC143C
+!define BB_COLOR #8B0000
+!define SEKIRO_COLOR #006400
+!define ELDEN_COLOR #DAA520
+!define LEGEND_COLOR #E6E6FA
+
+skinparam {
+    PackageBackgroundColor<<demons>> DEMONS_COLOR
+    PackageBackgroundColor<<ds1>> DS1_COLOR
+    PackageBackgroundColor<<ds2>> DS2_COLOR
+    PackageBackgroundColor<<ds3>> DS3_COLOR
+    PackageBackgroundColor<<bb>> BB_COLOR
+    PackageBackgroundColor<<sekiro>> SEKIRO_COLOR
+    PackageBackgroundColor<<elden>> ELDEN_COLOR
+    PackageBackgroundColor<<legend>> LEGEND_COLOR
+    ArrowColor #2F4F4F
+    PackageBorderColor #2F4F4F
+    NodeFontSize 12
+    NoteFontSize 11
+}
+
+title FromSoftware Soulsborne Series - Complete Evolution Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Game Color Coding:
+        Purple - Demon's Souls (2009)
+        Blue - Dark Souls (2011)
+        Teal - Dark Souls 2 (2014)
+        Crimson - Dark Souls 3 (2016)
+        Dark Red - Bloodborne (2015)
+        Green - Sekiro (2019)
+        Gold - Elden Ring (2022)
+        
+        Connection Types:
+        → Direct Sequel/Prequel
+        ⇢ Spiritual Successor
+        ⇢ Mechanical Evolution
+        ⇢ Thematic Connection
+    end note
+}
+
+' Demon's Souls Core Concepts
+package "Demon's Souls (2009)" <<demons>> {
+    [World Tendency] as WorldTendency
+    [Archstone System] as Archstones
+    [Fog Gates] as FogGates
+    [Souls Currency] as SoulsCurrency
+    [Boss Souls] as BossSouls
+}
+
+' Dark Souls Evolution
+package "Dark Souls (2011)" <<ds1>> {
+    [Bonfires] as Bonfires
+    [Estus Flask] as Estus
+    [Humanity System] as Humanity
+    [Covenants] as Covenants
+    [Interconnected World] as DSWorld
+}
+
+' Dark Souls 2 Innovations
+package "Dark Souls 2 (2014)" <<ds2>> {
+    [Power Stance] as PowerStance
+    [Life Gems] as LifeGems
+    [Bonfire Ascetics] as Ascetics
+    [Soul Memory] as SoulMemory
+    [Torch System] as Torch
+}
+
+' Bloodborne Changes
+package "Bloodborne (2015)" <<bb>> {
+    [Rally System] as Rally
+    [Trick Weapons] as TrickWeapons
+    [Blood Vials] as BloodVials
+    [Chalice Dungeons] as Chalice
+    [Insight System] as Insight
+}
+
+' Dark Souls 3 Refinements
+package "Dark Souls 3 (2016)" <<ds3>> {
+    [Weapon Arts] as WeaponArts
+    [FP System] as FPSystem
+    [Ember System] as Ember
+    [Poise System] as Poise
+    [Boss Phases] as BossPhases
+}
+
+' Sekiro Innovations
+package "Sekiro (2019)" <<sekiro>> {
+    [Posture System] as Posture
+    [Resurrection] as Resurrection
+    [Grappling Hook] as Grapple
+    [Stealth System] as Stealth
+    [Prosthetic Tools] as Prosthetics
+}
+
+' Elden Ring Culmination
+package "Elden Ring (2022)" <<elden>> {
+    [Open World] as OpenWorld
+    [Spirit Summons] as Spirits
+    [Jump Button] as Jump
+    [Torrent] as Mount
+    [Guard Counter] as GuardCounter
+}
+
+' Core Mechanic Evolution
+SoulsCurrency --> Humanity : "Evolved into"
+Archstones --> Bonfires : "Evolved into"
+BossSouls --> PowerStance : "Inspired"
+FogGates --> BossPhases : "Evolved into"
+
+' Combat Evolution
+Humanity --> BloodVials : "Inspired healing"
+Estus --> FPSystem : "Resource management"
+PowerStance --> WeaponArts : "Combat options"
+TrickWeapons --> Prosthetics : "Tool variety"
+WeaponArts --> GuardCounter : "Combat mechanics"
+
+' World Design Evolution
+DSWorld --> OpenWorld : "World design"
+Chalice --> OpenWorld : "Optional content"
+WorldTendency --> Insight : "World states"
+Torch --> Mount : "Exploration tools"
+Grapple --> Jump : "Mobility options"
+
+' Systems Evolution
+Rally --> Posture : "Aggressive combat"
+Stealth --> Spirits : "Combat assistance"
+Resurrection --> Ember : "Death mechanics"
+SoulMemory --> Runes : "Progress tracking"
+
+' Additional Notes
+note "Each game built upon previous mechanics" as N2
+note "Combat evolved from slow to dynamic" as N3
+note "World design grew increasingly complex" as N4
+
+@enduml 

@@ -1,0 +1,167 @@
+@startuml
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define DLC_COLOR #FF69B4
+!define LEGEND_COLOR #E6E6FA
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+skinparam {
+    PackageBackgroundColor<<main>> MAIN_COLOR
+    PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+    PackageBackgroundColor<<dlc>> DLC_COLOR
+    PackageBackgroundColor<<legend>> LEGEND_COLOR
+    ArrowColor #2F4F4F
+    PackageBorderColor #2F4F4F
+    NodeFontSize 12
+    NoteFontSize 11
+}
+
+title Dark Souls 3 - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {L} Lord of Cinder
+        {O} Optional Boss
+        {M} Main Boss
+    end note
+}
+
+package "Cemetery of Ash" <<main>> {
+    [Iudex Gundyr] as Gundyr
+    note right: "{M} Tutorial Boss\nDifficulty: ★★★☆☆\nLevel: 1-10"
+}
+
+package "High Wall of Lothric" <<main>> {
+    [Vordt of the Boreal Valley] as Vordt
+    note right: "{M} Difficulty: ★★★☆☆\nLevel: 10-20"
+    
+    [Dancer of the Boreal Valley] as Dancer
+    note right: "{O} Can be fought early\nDifficulty: ★★★★★\nRecommended Level: 70+"
+}
+
+package "Undead Settlement" <<main>> {
+    [Curse-rotted Greatwood] as Greatwood
+    note right: "{O} Grants Transposing Kiln\nDifficulty: ★★☆☆☆\nLevel: 15-25"
+}
+
+package "Road of Sacrifices" <<main>> {
+    [Crystal Sage] as Sage
+    note right: "{M} Difficulty: ★★★☆☆\nLevel: 30-40"
+}
+
+package "Cathedral of the Deep" <<optional>> {
+    [Deacons of the Deep] as Deacons
+    note right: "{M} Required for story\nDifficulty: ★★☆☆☆\nLevel: 30-40"
+}
+
+package "Farron Keep" <<main>> {
+    [Abyss Watchers] as Watchers
+    note right: "{L} First Lord of Cinder\nDifficulty: ★★★★☆\nLevel: 30-40"
+}
+
+package "Catacombs of Carthus" <<main>> {
+    [High Lord Wolnir] as Wolnir
+    note right: "{M} Difficulty: ★★★☆☆\nLevel: 35-45"
+}
+
+package "Irithyll of the Boreal Valley" <<main>> {
+    [Pontiff Sulyvahn] as Pontiff
+    note right: "{M} Difficulty: ★★★★★\nLevel: 50-60"
+}
+
+package "Anor Londo" <<main>> {
+    [Aldrich, Devourer of Gods] as Aldrich
+    note right: "{L} Lord of Cinder\nDifficulty: ★★★★☆\nLevel: 55-65"
+}
+
+package "Irithyll Dungeon" <<optional>> {
+    [Yhorm the Giant] as Yhorm
+    note right: "{L} Lord of Cinder\nDifficulty: ★★☆☆☆\nLevel: 55-65"
+}
+
+package "Lothric Castle" <<main>> {
+    [Dragonslayer Armour] as Armour
+    note right: "{M} Difficulty: ★★★★☆\nLevel: 65-75"
+}
+
+package "Grand Archives" <<main>> {
+    [Twin Princes] as Princes
+    note right: "{L} Lord of Cinder\nDifficulty: ★★★★★\nLevel: 70-80"
+}
+
+package "Archdragon Peak" <<optional>> {
+    [Nameless King] as Nameless
+    note right: "{O} Hardest Optional Boss\nDifficulty: ★★★★★\nLevel: 80+"
+}
+
+package "Kiln of the First Flame" <<main>> {
+    [Soul of Cinder] as SoulOfCinder
+    note right: "{M} Final Boss\nDifficulty: ★★★★★\nLevel: 80+"
+}
+
+package "DLC: Ashes of Ariandel" <<dlc>> {
+    [Champion's Gravetender & Greatwolf] as Gravetender
+    note right: "{O} Optional Boss\nDifficulty: ★★★★☆\nLevel: 60+\nUnlocks PvP Arena"
+    
+    [Sister Friede] as Friede
+    note right: "{O} Main DLC Boss\nDifficulty: ★★★★★\nLevel: 80+\nThree-Phase Fight\nRequired for Ringed City"
+}
+
+package "DLC: The Ringed City" <<dlc>> {
+    [Demon Prince] as DemonPrince
+    note right: "{O} Entry Boss\nDifficulty: ★★★★★\nLevel: 90+\nGateway to Ringed City"
+    
+    [Halflight, Spear of the Church] as Halflight
+    note right: "{O} Covenant Boss\nDifficulty: ★★★★☆\nLevel: 90+\nPvP Boss Fight"
+    
+    [Darkeater Midir] as Midir
+    note right: "{O} Optional Dragon\nDifficulty: ★★★★★\nLevel: 90+\nHardest Boss in Game"
+    
+    [Slave Knight Gael] as Gael
+    note right: "{O} Final DLC Boss\nDifficulty: ★★★★★\nLevel: 90+\nTrue Final Boss"
+}
+
+' Main Story Progression
+Gundyr --> Vordt
+Vordt --> Greatwood
+Greatwood --> Sage
+Sage --> Deacons
+Deacons --> Watchers
+Watchers --> Wolnir
+Wolnir --> Pontiff
+Pontiff --> Aldrich
+Aldrich --> Yhorm
+Yhorm --> Armour
+Armour --> Princes
+Princes --> SoulOfCinder
+
+' Optional Paths
+Vordt -[#green]-> Dancer : "Optional Early"
+Pontiff -[#green]-> Nameless : "Optional Area"
+Princes -[#green]-> Friede : "DLC Access"
+Friede -[#green]-> DemonPrince : "DLC Path"
+DemonPrince -[#green]-> Midir : "Optional"
+DemonPrince --> Gael : "Final DLC Boss"
+
+' DLC Access and Progression
+SoulOfCinder -[#green]-> Friede : "Ariandel DLC"
+Friede -[#green]-> Gravetender : "Optional"
+
+' Ringed City Access
+Friede --> DemonPrince : "Main Path"
+PrinceLorian -[#green]-> DemonPrince : "Alternative Path"
+DemonPrince --> Halflight
+Halflight --> Gael : "Final Boss"
+Halflight -[#green]-> Midir : "Optional Dragon"
+
+' Additional DLC Notes
+note "Requires Ashes of Ariandel DLC" as N2
+note "Access via Kiln or Ariandel" as N3
+note "Recommended to complete base game first" as N4
+
+@enduml

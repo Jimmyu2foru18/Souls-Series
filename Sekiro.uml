@@ -1,0 +1,246 @@
+@startuml
+' Layout and Sizing Configuration
+skinparam dpi 150
+skinparam defaultTextAlignment center
+skinparam nodesep 40
+skinparam ranksep 30
+skinparam padding 10
+skinparam packagePadding 15
+
+' Font Configurations
+skinparam defaultFontSize 10
+skinparam noteFontSize 9
+skinparam noteFontStyle plain
+
+' Arrow Styling
+skinparam ArrowColor #2F4F4F
+skinparam ArrowThickness 2
+skinparam PathHoverColor #FF0000
+skinparam PathColor #2F4F4F
+
+' Package Styling
+skinparam PackageBackgroundColor<<main>> MAIN_COLOR
+skinparam PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+skinparam PackageBackgroundColor<<memory>> MEMORY_COLOR
+skinparam PackageBackgroundColor<<legend>> LEGEND_COLOR
+skinparam PackageBorderThickness 2
+
+' Node Styling
+skinparam rectangleFontSize 12
+skinparam rectanglePadding 10
+skinparam rectangleBorderThickness 2
+
+' Scale Configuration
+scale max 1200 width
+scale max 900 height
+
+' Layout Directives
+top to bottom direction
+
+' Group Related Areas
+together {
+    package "Legend" <<legend>>
+    package "Tips & Strategies" <<legend>>
+}
+
+together {
+    package "Ashina Outskirts" <<main>>
+    package "Ashina Castle" <<main>>
+}
+
+together {
+    package "Hirata Estate" <<memory>>
+    package "Senpou Temple" <<optional>>
+}
+
+together {
+    package "Sunken Valley" <<optional>>
+    package "Ashina Depths" <<optional>>
+}
+
+together {
+    package "Fountainhead Palace" <<main>>
+    package "Final Area" <<main>>
+}
+
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define MEMORY_COLOR #E6E6FA
+!define LEGEND_COLOR #E6E6FA
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+title Sekiro: Shadows Die Twice - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {M} Main Boss
+        {O} Optional Boss
+        {MB} Memory Boss
+        {R} Required for Story
+    end note
+}
+
+package "Tips & Strategies" <<legend>> {
+    note as Tips
+        General Tips:
+        �� Deflect > dodge
+        • Hold block while learning timing
+        • Use stealth for mini-bosses
+        • Divine Confetti works on all
+        • Sugar buffs stack
+        
+        Combat Tips:
+        • Jump sweeps (red kanji)
+        • Mikiri Counter thrusts
+        • Dodge grabs sideways
+        • Run for spacing
+        
+        Prosthetic Tips:
+        • Firecrackers vs beasts
+        • Umbrella vs terror
+        • Shuriken vs jumpers
+        • Axe vs shields
+        • Spear pulls armor
+        
+        Boss Tips:
+        • Focus posture over vitality
+        • Use specific prosthetics
+        • Learn perilous patterns
+        • Save res for phase 2
+    end note
+}
+
+package "Ashina Outskirts" <<main>> {
+    [Gyoubu Masataka Oniwa] as Gyoubu
+    note right: "{M} ★★★★☆\nLv.25-30"
+    
+    [General Naomori Kawarada] as Kawarada
+    note right: "{O} Mini-Boss\nDifficulty: ★★☆☆☆"
+    
+    [Chained Ogre] as Ogre
+    note right: "{O} Mini-Boss\nDifficulty: ★★★★☆\nWeakness: Fire"
+    
+    [Blazing Bull] as Bull
+    note right: "{M} Beast Boss\nDifficulty: ★★★☆☆"
+}
+
+package "Hirata Estate" <<memory>> {
+    [Lady Butterfly] as Butterfly
+    note right: "{MB} Memory Boss\nDifficulty: ★★★★★\nOptional but recommended"
+    
+    [Juzou the Drunkard] as Juzou
+    note right: "{O} Mini-Boss\nDifficulty: ★★★☆☆"
+    
+    [Shinobi Hunter Enshin] as Enshin
+    note right: "{O} Mini-Boss\nDifficulty: ★★★☆☆\nTeaches Mikiri Counter"
+}
+
+package "Ashina Castle" <<main>> {
+    [Genichiro Ashina] as Genichiro
+    note right: "{M}{R} Major Story Boss\nDifficulty: ★★★★★\nRequired for Progression"
+    
+    [Ashina Elite - Jinsuke Saze] as Jinsuke
+    note right: "{O} Mini-Boss\nDifficulty: ★★★★★"
+    
+    [Seven Ashina Spears] as Spears
+    note right: "{O} Mini-Boss\nDifficulty: ★★★★☆"
+}
+
+package "Senpou Temple" <<optional>> {
+    [Folding Screen Monkeys] as Monkeys
+    note right: "{O} Puzzle Boss\nDifficulty: ���★☆☆☆\nRequired for Divine Child"
+    
+    [Armored Warrior] as Warrior
+    note right: "{O} Mini-Boss\nDifficulty: ★★★☆☆"
+}
+
+package "Sunken Valley" <<optional>> {
+    [Guardian Ape] as Ape
+    note right: "{O} Major Boss\nDifficulty: ★★★★★\nTwo-Phase Fight"
+    
+    [Snake Eyes Shirahagi] as Shirahagi
+    note right: "{O} Mini-Boss\nDifficulty: ★★★★☆"
+}
+
+package "Ashina Depths" <<optional>> {
+    [Guardian Ape (Headless)] as HeadlessApe
+    note right: "{O} Duo Boss\nDifficulty: ★★★★★"
+    
+    [O'Rin of the Water] as ORin
+    note right: "{O} Mini-Boss\nDifficulty: ★★★★☆"
+    
+    [Corrupted Monk (Illusion)] as MonkIllusion
+    note right: "{O} Major Boss\nDifficulty: ★★★★☆"
+}
+
+package "Fountainhead Palace" <<main>> {
+    [True Corrupted Monk] as TrueMonk
+    note right: "{M} Major Boss\nDifficulty: ★★★★★"
+    
+    [Divine Dragon] as Dragon
+    note right: "{M} Story Boss\nDifficulty: ★★★☆☆\nCinematic Fight"
+}
+
+package "Ashina Castle (Revisited)" <<main>> {
+    [Owl (Great Shinobi)] as OwlShinobi
+    note right: "{M} Story Boss\nDifficulty: ★★★★★\nPurification Route"
+    
+    [Owl (Father)] as OwlFather
+    note right: "{O} Secret Boss\nDifficulty: ★★★★★\nHirata Estate (Revisited)"
+}
+
+package "Final Area" <<main>> {
+    [Isshin, the Sword Saint] as Isshin
+    note right: "{M} True Final Boss\nDifficulty: ★★★★★\nSeverance Ending"
+    
+    [Demon of Hatred] as Demon
+    note right: "{O} Optional Super Boss\nDifficulty: ★★★★★"
+    
+    [Emma, the Gentle Blade] as Emma
+    note right: "{M} Shura Ending\nDifficulty: ★★★★☆"
+    
+    [Isshin Ashina] as IsshingShura
+    note right: "{M} Shura Final Boss\nDifficulty: ★★★★★"
+}
+
+' Main Story Progression
+skinparam PathHoverColor #FF0000
+skinparam PathColor #2F4F4F
+Ogre --> Gyoubu
+Gyoubu --> Bull
+Bull --> Genichiro
+Genichiro --> TrueMonk
+TrueMonk --> Dragon
+Dragon --> OwlShinobi
+OwlShinobi --> Isshin
+
+' Optional and Memory Paths
+Gyoubu -[thickness=2,#228B22]-> Butterfly : "Memory"
+Genichiro -[#green]-> Monkeys : "Divine Child"
+Genichiro -[#green]-> Ape : "Optional"
+Ape -[#green]-> HeadlessApe : "Optional"
+Dragon -[#green]-> OwlFather : "Purification"
+OwlShinobi -[#green]-> Demon : "Optional"
+
+' Shura Ending Path
+OwlShinobi -[thickness=2,#FF0000]-> Emma : "Shura Choice"
+Emma --> IsshingShura
+
+' Mini-Boss Connections
+Kawarada -[#green]-> Ogre
+Enshin -[#green]-> Juzou
+Juzou -[#green]-> Butterfly
+Spears -[#green]-> Genichiro
+Jinsuke -[#green]-> Genichiro
+
+' Additional Notes
+note "Multiple endings available" as N2
+note "Shura ending cuts game short" as N3
+note "Purification requires specific steps" as N4
+
+@enduml

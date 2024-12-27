@@ -1,0 +1,154 @@
+@startuml
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define DLC_COLOR #FF69B4
+!define LEGEND_COLOR #E6E6FA
+!define CHALICE_COLOR #8B4513
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+skinparam {
+    PackageBackgroundColor<<main>> MAIN_COLOR
+    PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+    PackageBackgroundColor<<dlc>> DLC_COLOR
+    PackageBackgroundColor<<legend>> LEGEND_COLOR
+    PackageBackgroundColor<<chalice>> CHALICE_COLOR
+    ArrowColor #2F4F4F
+    PackageBorderColor #2F4F4F
+    NodeFontSize 12
+    NoteFontSize 11
+}
+
+title Bloodborne - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {G} Great One
+        {M} Main Boss
+        {O} Optional Boss
+        {C} Chalice Dungeon Boss
+    end note
+}
+
+package "Central Yharnam" <<main>> {
+    [Cleric Beast] as ClericBeast
+    note right: "{O} First Boss\nDifficulty: ★★★☆☆\nLevel: 10-15"
+    
+    [Father Gascoigne] as Gascoigne
+    note right: "{M} Required Boss\nDifficulty: ★★★★☆\nLevel: 10-20"
+}
+
+package "Cathedral Ward" <<main>> {
+    [Blood-starved Beast] as BSB
+    note right: "{O} Opens Chalice Dungeons\nDifficulty: ★★★★☆\nLevel: 20-30"
+    
+    [Vicar Amelia] as Amelia
+    note right: "{M} Story Progress\nDifficulty: ★★★★☆\nLevel: 25-35"
+}
+
+package "Old Yharnam" <<optional>> {
+    [Darkbeast Paarl] as Paarl
+    note right: "{O} Optional Area\nDifficulty: ★★★★☆\nLevel: 40+"
+}
+
+package "Hemwick Charnel Lane" <<optional>> {
+    [Witch of Hemwick] as Witch
+    note right: "{O} Unlocks Rune Workshop\nDifficulty: ★★☆☆☆\nLevel: 30+"
+}
+
+package "Forbidden Woods" <<main>> {
+    [Shadow of Yharnam] as Shadows
+    note right: "{M} Required Boss\nDifficulty: ★★★★☆\nLevel: 45-55"
+}
+
+package "Byrgenwerth" <<main>> {
+    [Rom, the Vacuous Spider] as Rom
+    note right: "{G} Blood Moon Trigger\nDifficulty: ★★★★☆\nLevel: 50-60"
+}
+
+package "Yahar'gul, Unseen Village" <<main>> {
+    [The One Reborn] as OneReborn
+    note right: "{M} Required Boss\nDifficulty: ★★★★☆\nLevel: 60-70"
+}
+
+package "Nightmare Frontier" <<optional>> {
+    [Amygdala] as Amygdala
+    note right: "{O} Great One\nDifficulty: ★★★★★\nLevel: 65+"
+}
+
+package "Nightmare of Mensis" <<main>> {
+    [Micolash, Host of the Nightmare] as Micolash
+    note right: "{M} Required Boss\nDifficulty: ★★★☆☆\nLevel: 70-80"
+    
+    [Mergo's Wet Nurse] as Nurse
+    note right: "{G} Required Boss\nDifficulty: ★★★★☆\nLevel: 75-85"
+}
+
+package "Upper Cathedral Ward" <<optional>> {
+    [Celestial Emissary] as Emissary
+    note right: "{O} Great One\nDifficulty: ★★☆☆☆\nLevel: 65+"
+    
+    [Ebrietas, Daughter of the Cosmos] as Ebrietas
+    note right: "{O} Great One\nDifficulty: ★★★★★\nLevel: 70+"
+}
+
+package "Chalice Dungeons" <<chalice>> {
+    [Pthumerian Queen] as Queen
+    note right: "{C} True Final Boss\nDifficulty: ★★★★★\nLevel: 120+"
+}
+
+package "DLC: The Old Hunters" <<dlc>> {
+    [Ludwig, the Accursed/Holy Blade] as Ludwig
+    note right: "{O} First DLC Boss\nDifficulty: ★★★★★\nLevel: 65+\nRequired for Research Hall"
+    
+    [Living Failures] as Failures
+    note right: "{O} Research Hall Boss\nDifficulty: ★★★☆☆\nLevel: 70+\nRequired for Maria"
+    
+    [Lady Maria of the Astral Clocktower] as Maria
+    note right: "{O} Clocktower Boss\nDifficulty: ★★★★★\nLevel: 75+\nUnlocks Fishing Hamlet"
+    
+    [Orphan of Kos] as Orphan
+    note right: "{O} Final DLC Boss\nDifficulty: ★★★★★\nLevel: 80+\nHardest Boss in Game"
+    
+    [Laurence, the First Vicar] as Laurence
+    note right: "{O} Optional Boss\nDifficulty: ★★★★★\nLevel: 80+\nRequired for 100% completion"
+}
+
+' DLC Progression
+Nurse -[#green]-> Ludwig : "DLC Access"
+Ludwig --> Failures : "Research Hall"
+Failures --> Maria : "Clocktower"
+Maria --> Orphan : "Fishing Hamlet"
+Ludwig -[#green]-> Laurence : "Optional Cathedral"
+
+' Additional DLC Notes
+note "Requires Eye of a Blood-drunk Hunter" as N2
+note "Must defeat Vicar Amelia first" as N3
+
+' Main Story Progression
+ClericBeast -[#green]-> Gascoigne
+Gascoigne --> Amelia
+Amelia --> Shadows
+Shadows --> Rom
+Rom --> OneReborn
+OneReborn --> Micolash
+Micolash --> Nurse
+
+' Optional Paths
+Gascoigne -[#green]-> BSB : "Optional"
+BSB -[#green]-> Queen : "Chalice Path"
+Amelia -[#green]-> Witch : "Optional"
+Rom -[#green]-> Amygdala : "Optional"
+OneReborn -[#green]-> Emissary : "Optional"
+Emissary --> Ebrietas
+Nurse -[#green]-> Ludwig : "DLC Access"
+Ludwig --> Failures
+Failures --> Maria
+Maria --> Orphan
+Ludwig -[#green]-> Laurence : "Optional"
+
+@enduml

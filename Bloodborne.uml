@@ -1,0 +1,320 @@
+@startuml
+' Layout and Sizing Configuration
+skinparam dpi 200
+skinparam defaultTextAlignment center
+skinparam nodesep 40
+skinparam ranksep 50
+skinparam padding 10
+skinparam packagePadding 20
+
+' Font Configurations
+skinparam defaultFontSize 12
+skinparam noteFontSize 10
+skinparam noteFontStyle plain
+
+' Arrow Styling
+skinparam ArrowColor #2F4F4F
+skinparam ArrowThickness 2
+
+' Package Styling
+skinparam PackageBackgroundColor<<main>> MAIN_COLOR
+skinparam PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+skinparam PackageBackgroundColor<<dlc>> DLC_COLOR
+skinparam PackageBackgroundColor<<legend>> LEGEND_COLOR
+skinparam PackageBackgroundColor<<chalice>> CHALICE_COLOR
+skinparam PackageBorderThickness 2
+
+' Node Styling
+skinparam rectangleFontSize 12
+skinparam rectanglePadding 10
+skinparam rectangleBorderThickness 2
+
+' Scale Configuration
+scale max 1600 width
+scale max 1200 height
+
+' Layout Directives
+top to bottom direction
+together {
+    package "Legend" <<legend>>
+    package "Tips & Strategies" <<legend>>
+}
+
+together {
+    package "Chalice Dungeons Guide" <<chalice>>
+    package "Chalice Tips & Strategies" <<chalice>>
+}
+
+' Horizontal Layout Groups
+together {
+    package "Central Yharnam" <<main>>
+    package "Cathedral Ward" <<main>>
+}
+
+together {
+    package "Old Yharnam" <<optional>>
+    package "Hemwick Charnel Lane" <<optional>>
+}
+
+together {
+    package "DLC: The Old Hunters" <<dlc>>
+    package "Chalice Dungeon Progression" <<chalice>>
+}
+
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define DLC_COLOR #FF69B4
+!define LEGEND_COLOR #E6E6FA
+!define CHALICE_COLOR #8B4513
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+title Bloodborne - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {G} Great One
+        {M} Main Boss
+        {O} Optional Boss
+        {C} Chalice Dungeon Boss
+    end note
+}
+
+package "Tips & Strategies" <<legend>> {
+    note as Tips
+        General Tips:
+        • Rally system encourages aggressive play - regain health by counter-attacking
+        • Blood vials can be farmed in Central Yharnam
+        • Insight below 15 makes game easier (weaker enemies)
+        • Parrying with guns is safer than shield parrying
+        • Fire is effective against beast enemies
+        • Bolt is effective against kin enemies
+        • Serrated weapons deal bonus damage to beasts
+        • Righteous weapons deal bonus damage to Vilebloods
+        
+        Key Items:
+        • Get Saw Cleaver/Saw Spear early for beast bonus damage
+        • Old Hunter Bell helps with difficult bosses
+        • Numbing Mist crucial for certain boss fights
+        • Bold Hunter's Mark for safe soul farming
+        
+        Boss Tips:
+        • Most beast bosses weak to fire and serration
+        • Many bosses can be parried
+        • Dodge into attacks, not away (i-frames)
+        • Blood cocktails distract beast bosses
+    end note
+}
+
+package "Central Yharnam" <<main>> {
+    [Cleric Beast] as ClericBeast
+    note right: "{O} First Boss\nDifficulty: ★★★☆☆\nLevel: 10-15"
+    
+    [Father Gascoigne] as Gascoigne
+    note right: "{M} Required Boss\nDifficulty: ★★★★☆\nLevel: 10-20"
+}
+
+package "Cathedral Ward" <<main>> {
+    [Blood-starved Beast] as BSB
+    note right: "{O} Opens Chalice Dungeons\nDifficulty: ★★★★☆\nLevel: 20-30"
+    
+    [Vicar Amelia] as Amelia
+    note right: "{M} Story Progress\nDifficulty: ★★★★☆\nLevel: 25-35"
+}
+
+package "Old Yharnam" <<optional>> {
+    [Darkbeast Paarl] as Paarl
+    note right: "{O} Optional Area\nDifficulty: ★★★★☆\nLevel: 40+"
+}
+
+package "Hemwick Charnel Lane" <<optional>> {
+    [Witch of Hemwick] as Witch
+    note right: "{O} Unlocks Rune Workshop\nDifficulty: ★★☆☆☆\nLevel: 30+"
+}
+
+package "Forbidden Woods" <<main>> {
+    [Shadow of Yharnam] as Shadows
+    note right: "{M} Required Boss\nDifficulty: ★★★★☆\nLevel: 45-55"
+}
+
+package "Byrgenwerth" <<main>> {
+    [Rom, the Vacuous Spider] as Rom
+    note right: "{G} Blood Moon Trigger\nDifficulty: ★★★★☆\nLevel: 50-60"
+}
+
+package "Yahar'gul, Unseen Village" <<main>> {
+    [The One Reborn] as OneReborn
+    note right: "{M} Required Boss\nDifficulty: ★★★★☆\nLevel: 60-70"
+}
+
+package "Nightmare Frontier" <<optional>> {
+    [Amygdala] as Amygdala
+    note right: "{O} Great One\nDifficulty: ★★★★★\nLevel: 65+"
+}
+
+package "Nightmare of Mensis" <<main>> {
+    [Micolash, Host of the Nightmare] as Micolash
+    note right: "{M} Required Boss\nDifficulty: ★★��☆☆\nLevel: 70-80"
+    
+    [Mergo's Wet Nurse] as Nurse
+    note right: "{G} Required Boss\nDifficulty: ★★★★☆\nLevel: 75-85"
+}
+
+package "Upper Cathedral Ward" <<optional>> {
+    [Celestial Emissary] as Emissary
+    note right: "{O} Great One\nDifficulty: ★★☆☆☆\nLevel: 65+"
+    
+    [Ebrietas, Daughter of the Cosmos] as Ebrietas
+    note right: "{O} Great One\nDifficulty: ★★★★★\nLevel: 70+"
+}
+
+package "Chalice Dungeons" <<chalice>> {
+    [Pthumerian Queen] as Queen
+    note right: "{C} True Final Boss\nDifficulty: ★★★★★\nLevel: 120+"
+}
+
+package "DLC: The Old Hunters" <<dlc>> {
+    [Ludwig, the Accursed/Holy Blade] as Ludwig
+    note right: "{O} First DLC Boss\nDifficulty: ★★★★★\nLevel: 65+\nRequired for Research Hall"
+    
+    [Living Failures] as Failures
+    note right: "{O} Research Hall Boss\nDifficulty: ★★★☆☆\nLevel: 70+\nRequired for Maria"
+    
+    [Lady Maria of the Astral Clocktower] as Maria
+    note right: "{O} Clocktower Boss\nDifficulty: ★★★★★\nLevel: 75+\nUnlocks Fishing Hamlet"
+    
+    [Orphan of Kos] as Orphan
+    note right: "{O} Final DLC Boss\nDifficulty: ★★★★★\nLevel: 80+\nHardest Boss in Game"
+    
+    [Laurence, the First Vicar] as Laurence
+    note right: "{O} Optional Boss\nDifficulty: ★★★★★\nLevel: 80+\nRequired for 100% completion"
+}
+
+package "Chalice Dungeons Guide" <<chalice>> {
+    note as ChaliceGuide
+        Chalice Progression Order:
+        1. Pthumeru Chalice (Depth 1) - From BSB
+        2. Central Pthumeru (Depth 2) - From Layer 3 boss
+        3. Lower Pthumeru (Depth 3) - From Central boss
+        4. Ailing Loran (Depth 4) - From Amygdala
+        5. Defiled Chalice (Depth 4) - From Lower Pthumeru
+        6. Great Isz (Depth 5) - From Ebrietas
+        7. Great Pthumeru Ihyll (Depth 5) - From Defiled
+        
+        Important Tips:
+        • Farm Blood Echoes in Depth 1-3
+        • Get 15% HP rune before Defiled
+        • Save Ritual Materials for later dungeons
+        • Red Jelly found in Lecture Building
+        • Living String from Brain of Mensis
+    end note
+}
+
+package "Chalice Dungeon Progression" <<chalice>> {
+    [Pthumerian Descendant] as Descendant
+    note right: "{C} Depth 1\nDifficulty: ★★★☆☆\nLevel: 30+"
+    
+    [Undead Giant] as Giant
+    note right: "{C} Depth 2\nDifficulty: ★★★★☆\nLevel: 40+"
+    
+    [Watchdog of the Old Lords] as Watchdog
+    note right: "{C} Depth 3\nDifficulty: ★★★★☆\nLevel: 50+"
+    
+    [Abhorrent Beast] as Beast
+    note right: "{C} Loran\nDifficulty: ★★★★★\nLevel: 70+"
+    
+    [Defiled Watchdog] as DefWatchdog
+    note right: "{C} Defiled\nDifficulty: ★★★★★\nLevel: 100+\nHalf HP Challenge"
+    
+    [Defiled Amygdala] as DefAmygdala
+    note right: "{C} Defiled\nDifficulty: ★★★★★\nLevel: 100+\nHalf HP Challenge"
+    
+    [Ebrietas] as ChaliceEbrietas
+    note right: "{C} Isz\nDifficulty: ★★★★★\nLevel: 90+"
+    
+    [Headless Bloodletting Beast] as Headless
+    note right: "{C} Ihyll\nDifficulty: ★★★★★\nLevel: 120+"
+    
+    [Yharnam, Pthumerian Queen] as Queen
+    note right: "{C} Final Boss\nDifficulty: ★★★★★\nLevel: 120+\nTrue Ending"
+}
+
+package "Chalice Tips & Strategies" <<chalice>> {
+    note as ChalliceTips
+        General Chalice Tips:
+        • Bring lots of Blood Vials to Defiled
+        • Fire paper effective on beasts
+        • Bolt paper for kin enemies
+        • Learn to dodge forward
+        
+        Farming Tips:
+        • Layer 1 bosses easiest to farm
+        • Moon runes stack for echoes
+        • Save Bold Hunter's Marks
+        • Best gems from depth 5 FRC
+        
+        Ritual Materials:
+        • Ritual Blood (1-5) found in order
+        • Tomb Mold needed for each depth
+        • Save Bastards of Loran
+        • Pearl Slugs from Lecture Building
+        
+        FRC Dungeons:
+        • Fetid = More echoes/items
+        • Rotted = Special enemies/items
+        • Cursed = Better gems, half HP
+    end note
+}
+
+' DLC Progression
+Nurse -[#green]-> Ludwig : "DLC Access"
+Ludwig --> Failures : "Research Hall"
+Failures --> Maria : "Clocktower"
+Maria --> Orphan : "Fishing Hamlet"
+Ludwig -[#green]-> Laurence : "Optional Cathedral"
+
+' Additional DLC Notes
+note "Requires Eye of a Blood-drunk Hunter" as N2
+note "Must defeat Vicar Amelia first" as N3
+
+' Main Story Progression
+skinparam PathHoverColor #FF0000
+skinparam PathColor #2F4F4F
+ClericBeast -[#green]-> Gascoigne
+Gascoigne --> Amelia
+Amelia --> Shadows
+Shadows --> Rom
+Rom --> OneReborn
+OneReborn --> Micolash
+Micolash --> Nurse
+
+' Optional Paths
+Gascoigne -[#green]-> BSB : "Optional"
+BSB -[#green]-> Queen : "Chalice Path"
+Amelia -[#green]-> Witch : "Optional"
+Rom -[#green]-> Amygdala : "Optional"
+OneReborn -[#green]-> Emissary : "Optional"
+Emissary --> Ebrietas
+Nurse -[#green]-> Ludwig : "DLC Access"
+Ludwig --> Failures
+Failures --> Maria
+Maria --> Orphan
+Ludwig -[#green]-> Laurence : "Optional"
+
+' Chalice Progression Paths
+BSB -[#brown]-> Descendant : "First Chalice"
+Descendant -[#brown]-> Giant : "Central"
+Giant -[#brown]-> Watchdog : "Lower"
+Watchdog -[#brown]-> Beast : "Loran"
+Beast -[#brown]-> DefWatchdog : "Defiled"
+DefWatchdog --> DefAmygdala
+DefAmygdala -[#brown]-> Headless : "Ihyll"
+Headless --> Queen
+Amygdala -[#brown]-> Beast : "Loran Access"
+Ebrietas -[#brown]-> ChaliceEbrietas : "Isz Access"
+
+@enduml

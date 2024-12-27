@@ -1,0 +1,152 @@
+@startuml
+!define MAIN_COLOR #FFD700
+!define OPTIONAL_COLOR #C0C0C0
+!define DLC_COLOR #FF69B4
+!define LEGEND_COLOR #E6E6FA
+!define DIFFICULTY_HIGH #FF0000
+!define DIFFICULTY_MEDIUM #FFA500
+!define DIFFICULTY_LOW #008000
+
+skinparam {
+    PackageBackgroundColor<<main>> MAIN_COLOR
+    PackageBackgroundColor<<optional>> OPTIONAL_COLOR
+    PackageBackgroundColor<<dlc>> DLC_COLOR
+    PackageBackgroundColor<<legend>> LEGEND_COLOR
+    ArrowColor #2F4F4F
+    PackageBorderColor #2F4F4F
+    NodeFontSize 12
+    NoteFontSize 11
+}
+
+title Dark Souls 1 - Complete Boss Progression Map
+
+package "Legend" <<legend>> {
+    note as N1
+        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+        → Required Path
+        ⇢ Optional Path
+        {L} Lord Soul Bearer
+        {O} Optional Boss
+        {M} Main Boss
+        {K} Key Boss
+    end note
+}
+
+package "Undead Asylum" <<main>> {
+    [Asylum Demon] as Asylum
+    note right: "{M} Tutorial Boss\nDifficulty: ★★☆☆☆\nLevel: 1-10"
+}
+
+package "Undead Burg" <<main>> {
+    [Taurus Demon] as Taurus
+    note right: "{M} First Real Boss\nDifficulty: ★★★☆☆\nLevel: 10-20"
+    
+    [Bell Gargoyles] as Gargoyles
+    note right: "{K} First Bell of Awakening\nDifficulty: ★★★★☆\nLevel: 15-25"
+}
+
+package "Undead Parish" <<optional>> {
+    [Capra Demon] as Capra
+    note right: "{O} Required for Depths\nDifficulty: ★★★★☆\nLevel: 20-30"
+    
+    [Moonlight Butterfly] as Butterfly
+    note right: "{O} Optional Boss\nDifficulty: ★★☆☆☆\nLevel: 20-30"
+}
+
+package "The Depths" <<main>> {
+    [Gaping Dragon] as Gaping
+    note right: "{M} Key to Blighttown\nDifficulty: ★★★☆☆\nLevel: 25-35"
+}
+
+package "Blighttown" <<main>> {
+    [Chaos Witch Quelaag] as Quelaag
+    note right: "{K} Second Bell of Awakening\nDifficulty: ★★★★☆\nLevel: 30-40"
+}
+
+package "Sen's Fortress" <<main>> {
+    [Iron Golem] as Golem
+    note right: "{M} Gateway to Anor Londo\nDifficulty: ★★★★☆\nLevel: 40-50"
+}
+
+package "Darkroot Garden" <<optional>> {
+    [Great Grey Wolf Sif] as Sif
+    note right: "{O} Required for Abyss\nDifficulty: ★★★★☆\nLevel: 35-45"
+}
+
+package "Anor Londo" <<main>> {
+    [Dragon Slayer Ornstein & Executioner Smough] as OnS
+    note right: "{K} Lord Vessel Guardians\nDifficulty: ★★★★★\nLevel: 45-60"
+}
+
+package "New Londo Ruins" <<main>> {
+    [Four Kings] as Kings
+    note right: "{L} Lord Soul Bearer\nDifficulty: ★★★★★\nLevel: 55-70\nRequires Covenant of Artorias"
+}
+
+package "Duke's Archives" <<main>> {
+    [Seath the Scaleless] as Seath
+    note right: "{L} Lord Soul Bearer\nDifficulty: ★★★★☆\nLevel: 55-70"
+}
+
+package "Demon Ruins/Lost Izalith" <<main>> {
+    [Bed of Chaos] as Chaos
+    note right: "{L} Lord Soul Bearer\nDifficulty: ★★★☆☆\nLevel: 55-70"
+}
+
+package "Tomb of the Giants" <<main>> {
+    [Gravelord Nito] as Nito
+    note right: "{L} Lord Soul Bearer\nDifficulty: ★★★★☆\nLevel: 55-70"
+}
+
+package "Kiln of the First Flame" <<main>> {
+    [Gwyn, Lord of Cinder] as Gwyn
+    note right: "{M} Final Boss\nDifficulty: ★★★★★\nLevel: 70-80"
+}
+
+package "DLC: Artorias of the Abyss" <<dlc>> {
+    [Sanctuary Guardian] as Guardian
+    note right: "{O} DLC Entry Boss\nDifficulty: ★★★☆☆\nLevel: 50+"
+    
+    [Knight Artorias] as Artorias
+    note right: "{O} Legendary Knight\nDifficulty: ★★★★★\nLevel: 60+\nRequired for Manus"
+    
+    [Manus, Father of the Abyss] as Manus
+    note right: "{O} Final DLC Boss\nDifficulty: ★★★★★\nLevel: 70+\nTrue Final Boss"
+    
+    [Black Dragon Kalameet] as Kalameet
+    note right: "{O} Optional Dragon\nDifficulty: ★★★★★\nLevel: 70+\nHardest Boss"
+}
+
+' Main Story Progression
+Asylum --> Taurus
+Taurus --> Gargoyles
+Gargoyles --> Quelaag
+Quelaag --> Golem
+Golem --> OnS
+OnS --> Kings
+OnS --> Seath
+OnS --> Chaos
+OnS --> Nito
+Kings --> Gwyn
+Seath --> Gwyn
+Chaos --> Gwyn
+Nito --> Gwyn
+
+' Optional Paths
+Taurus -[#green]-> Butterfly : "Optional"
+Gargoyles -[#green]-> Capra : "Optional"
+Capra --> Gaping
+OnS -[#green]-> Guardian : "DLC Access"
+Sif -[#green]-> Kings : "Required Ring"
+
+' DLC Progression
+Guardian --> Artorias
+Artorias --> Manus
+Artorias -[#green]-> Kalameet : "Optional"
+
+' Additional Notes
+note "Requires Broken Pendant" as N2
+note "Must place Lordvessel first" as N3
+note "DLC recommended before Gwyn" as N4
+
+@enduml
