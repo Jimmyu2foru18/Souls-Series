@@ -39,7 +39,7 @@ Below are the UML diagrams for each game:
 ![Dark Souls III Diagram](/Dark%20Souls%203.png)
 ![Bloodborne Diagram](/Bloodborne.png)
 ![Sekiro Diagram](/Sekiro.png)
-![Elden Ring Diagram](/Elden%20Ring.png)
+![Elden Ring Diagram](/Elden.png)
 
 ### Project Goals
 - **Complete Diagrams**: Create and maintain detailed diagrams for each game in the Souls series, including Demon's Souls, Dark Souls (1, 2, 3), Bloodborne, Sekiro, and Elden Ring.
