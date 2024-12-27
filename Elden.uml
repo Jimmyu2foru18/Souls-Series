@@ -8,16 +8,16 @@
 !define DIFFICULTY_LOW #008000
 
 ' Layout and Sizing Configuration
-skinparam dpi 200
+skinparam dpi 190
 skinparam defaultTextAlignment center
-skinparam nodesep 40
-skinparam ranksep 50
-skinparam padding 10
-skinparam packagePadding 20
+skinparam nodesep 80          ' Increased spacing between nodes
+skinparam ranksep 90          ' Increased spacing between ranks
+skinparam padding 20          ' Increased padding around packages
+skinparam packagePadding 20   ' Reduced padding within packages
 
 ' Font Configurations
-skinparam defaultFontSize 12
-skinparam noteFontSize 10
+skinparam defaultFontSize 14  ' Increased font size for better readability
+skinparam noteFontSize 12      ' Increased note font size
 skinparam noteFontStyle plain
 
 ' Arrow Styling
@@ -34,8 +34,8 @@ skinparam PackageBackgroundColor<<legend>> LEGEND_COLOR
 skinparam PackageBorderThickness 2
 
 ' Node Styling
-skinparam rectangleFontSize 12
-skinparam rectanglePadding 10
+skinparam rectangleFontSize 12  ' Reduced font size for nodes
+skinparam rectanglePadding 10     ' Reduced padding within nodes
 skinparam rectangleBorderThickness 2
 
 ' Scale Configuration
@@ -47,76 +47,49 @@ top to bottom direction
 
 ' Group Related Areas
 together {
-    package "Legend" <<legend>>
-    package "Tips & Strategies" <<legend>>
+    package "Tips & Strategies" <<legend>> {
+        note as Tips
+            General Tips:
+            • Use Torrent for exploration and some fights
+            • Spirit Ashes help with difficult bosses
+            • Craft items between major fights
+            • Level Vigor to 40 minimum
+            
+            Exploration Tips:
+            • Get map fragments first in new areas
+            • Use markers to note points of interest
+            • Underground areas contain unique items
+            • Check ruins for basement entrances
+            
+            Combat Tips:
+            • Guard counters effective on normal enemies
+            • Jump attacks break stance easily
+            • Power stance weapons for high damage
+            • Status effects very powerful
+            
+            Build Tips:
+            • Quality builds need high investment
+            • Status effect builds strong early
+            • Faith provides utility and buffs
+            • Arcane improves item discovery
+        end note
+    }
 }
 
 together {
-    package "Limgrave" <<main>>
-    package "Weeping Peninsula" <<optional>>
+    package "Legend" <<legend>> {
+        note as N1
+            Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
+            → Required Path
+            ⇢ Optional Path
+            {L} Legendary Boss
+            {R} Remembrance Boss
+            {S} Shardbearing Boss
+        end note
+    }
 }
 
-together {
-    package "Liurnia of the Lakes" <<main>>
-    package "Caelid" <<optional>>
-}
-
-together {
-    package "Altus Plateau" <<main>>
-    package "Mt. Gelmir" <<optional>>
-}
-
-together {
-    package "Mountaintops of the Giants" <<main>>
-    package "Consecrated Snowfield" <<optional>>
-}
-
-together {
-    package "Crumbling Farum Azula" <<main>>
-    package "Miquella's Haligtree" <<optional>>
-}
-
-title Elden Ring - Complete Boss Progression Map
-
-package "Legend" <<legend>> {
-    note as N1
-        Difficulty Rating: ★☆☆☆☆ (Easy) to ★★★★★ (Very Hard)
-        → Required Path
-        ⇢ Optional Path
-        {L} Legendary Boss
-        {R} Remembrance Boss
-        {S} Shardbearing Boss
-    end note
-}
-
-package "Tips & Strategies" <<legend>> {
-    note as Tips
-        General Tips:
-        • Use Torrent for exploration and some fights
-        • Spirit Ashes help with difficult bosses
-        • Craft items between major fights
-        • Level Vigor to 40 minimum
-        
-        Exploration Tips:
-        • Get map fragments first in new areas
-        • Use markers to note points of interest
-        • Underground areas contain unique items
-        • Check ruins for basement entrances
-        
-        Combat Tips:
-        • Guard counters effective on normal enemies
-        • Jump attacks break stance easily
-        • Power stance weapons for high damage
-        • Status effects very powerful
-        
-        Build Tips:
-        • Quality builds need high investment
-        • Status effect builds strong early
-        • Faith provides utility and buffs
-        • Arcane improves item discovery
-    end note
-}
-
+' Base Game Packages
 package "Limgrave" <<main>> {
     [Margit, the Fell Omen] <<difficulty_high>> as Margit
     note right: "{S} ★★★★☆\nLv.25-30"
@@ -198,21 +171,53 @@ package "Leyndell, Ashen Capital" <<main>> {
     note right: "Final Bosses\nDifficulty: ★★★★★\nLevel: 120-150"
 }
 
+' DLC Package
 package "DLC: Shadow of the Erdtree" <<dlc>> {
-    [Messmer the Impaler] as Messmer
-    note right: "{O} DLC Entry Boss\nDifficulty: ★★★★☆\nLevel: 100+"
-    
-    [Knight of Miquella] as MiquellaBoss
-    note right: "{O} Story Boss\nDifficulty: ★★★★★\nLevel: 120+"
-    
-    [Barbarian Knight] as Barbarian
-    note right: "{O} Optional Boss\nDifficulty: ★★★★☆\nLevel: 110+"
-    
-    [Guardian of the Eclipse] as Eclipse
-    note right: "{O} Major Boss\nDifficulty: ★★★★★\nLevel: 130+"
-    
-    [Mohgwyn Knight] as MohgwynBoss
-    note right: "{O} Optional Area Boss\nDifficulty: ★★★★★\nLevel: 125+"
+    [Mohg, Lord of Blood] as Mohg
+    note right: "Entry Boss\nDifficulty: ★★★★★\nLevel: 100+"
+
+    [Divine Beast Dancing Lion (Belurat)] as DancingLion
+    note right: "Difficulty: ★★★☆☆\nRecommended Level: 150+"
+
+    [Rellana, Twin Moon Knight (Castle Ensis)] as Rellana
+    note right: "Difficulty: ★★★★☆\nRecommended Level: 160+"
+
+    [Putrescent Knight (Stone Coffin Fissure)] as PutrescentKnight
+    note right: "Difficulty: ★★★★☆\nRecommended Level: 165+"
+
+    [Messmer The Impaler / Base Serpent Messmer (Shadow Keep)] as Messmer
+    note right: "Difficulty: ★★★★★\nRecommended Level: 170+"
+
+    [Commander Gaius (Scaduview)] as CommanderGaius
+    note right: "Difficulty: ★★★★☆\nRecommended Level: 175+"
+
+    [Scadutree Avatar (Scadutree Base)] as ScadutreeAvatar
+    note right: "Difficulty: ★★★★☆\nRecommended Level: 180+"
+
+    [Metyr, Mother Of Fingers (Finger Birthing Grounds)] as Metyr
+    note right: "Difficulty: ★★★★★\nRecommended Level: 185+"
+
+    [Romina, Saint Of The Bud (Church Of The Bud)] as Romina
+    note right: "Difficulty: ★★★★★\nRecommended Level: 190+"
+
+    [Midra, Lord Of Frenzied Flame (Midra's Manse)] as Midra
+    note right: "Difficulty: ★★★★★\nRecommended Level: 195+"
+
+    [Bayle The Dread] as Bayle
+    note right: "Difficulty: ★★★★★\nRecommended Level: 200+"
+
+    [Promised Consort Radahn / Radahn, Consort Of Miquella (Divine Gate in Enir-Ilim)] as RadahnConsort
+    note right: "Difficulty: ★★★★★★\nRecommended Level: 200+"
+
+    ' Optional Bosses
+    [Golden Hippopotamus] as GoldenHippopotamus
+    note right: "Difficulty: ★★★★☆\nRecommended Level: 170+"
+
+    [Logur The Beast Claw (South Woods)] as Logur
+    note right: "Difficulty: ★★☆☆☆\nRecommended Level: 150+"
+
+    [Leda (and gang)] as Leda
+    note right: "Difficulty: ★★★★☆\nRecommended Level: 180+"
 }
 
 ' Main Story Progression
@@ -242,10 +247,21 @@ Niall -[#green]-> Malenia : "Required for Haligtree"
 Malenia -[#green]-> Maliketh : "Optional"
 
 ' DLC Progression
-SoulOfCinder -[thickness=2,#FF69B4]-> Messmer : "DLC Entry"
-Messmer --> MiquellaBoss
-MiquellaBoss --> Eclipse
-Messmer -[#green]-> Barbarian : "Optional"
-Eclipse -[#green]-> MohgwynBoss : "Secret Area"
+Mohg --> DancingLion
+DancingLion --> Rellana
+Rellana --> PutrescentKnight
+PutrescentKnight --> Messmer
+Messmer --> CommanderGaius
+CommanderGaius --> ScadutreeAvatar
+ScadutreeAvatar --> Metyr
+Metyr --> Romina
+Romina --> Midra
+Midra --> Bayle
+Bayle --> RadahnConsort
+
+' Optional Paths
+GoldenHippopotamus -[#green]-> DancingLion : "Optional"
+Logur -[#green]-> CommanderGaius : "Optional"
+Leda -[#green]-> Rellana : "Optional"
 
 @enduml
