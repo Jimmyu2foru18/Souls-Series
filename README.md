@@ -30,7 +30,7 @@ Each game has its own diagram that outlines:
 - **Elden Ring**: Comprehensive map and strategies.
 
 ## Boss List
-[![Excel Boss List](https://substackcdn.com/image/fetch/$s_!kfzv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F164d2f62-6e5e-4e46-905e-4ee8f392c057_3840x2160.jpeg](https://docs.google.com/spreadsheets/d/1ScP2_XCM77Ffwn0Tnpa_p7WH3eBV-oYLwdoC0U_1oM4/edit?gid=1676791626#gid=1676791626))
+[![Excel Boss List](https://substackcdn.com/image/fetch/$s_!kfzv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F164d2f62-6e5e-4e46-905e-4ee8f392c057_3840x2160.jpeg)](https://docs.google.com/spreadsheets/d/1ScP2_XCM77Ffwn0Tnpa_p7WH3eBV-oYLwdoC0U_1oM4/edit?gid=1676791626#gid=1676791626)
 
 ### Click **Image** For Boss List!
 
