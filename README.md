@@ -30,7 +30,7 @@ Each game has its own diagram that outlines:
 - **Elden Ring**: Comprehensive map and strategies.
 
 ## Boss List
-![excel](/T3vs%20Elden%20Ring%20Boss.xlsx)
+[![excel](/T3vs%20Elden%20Ring%20Boss.xlsx)](https://discord.com/channels/@me/1299512429692321893/1407886089762635806)
 
 ### Images
 Below are the UML diagrams for each game:
@@ -48,4 +48,5 @@ Below are the UML diagrams for each game:
 - **Complete Diagrams**: Create and maintain detailed diagrams for each game in the Souls series, including Demon's Souls, Dark Souls (1, 2, 3), Bloodborne, Sekiro, and Elden Ring.
 - **Tips and Strategies**: Provide useful tips and strategies for players to enhance their gameplay experience.
 - **Community Contributions**: Encourage contributions from the community to expand and improve the content.
+
 
