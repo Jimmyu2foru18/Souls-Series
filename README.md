@@ -34,7 +34,8 @@ Each game has its own diagram that outlines:
 
 ### Click **Image** For Boss List!
 
-### Images
+## Diagrams
+
 Below are the UML diagrams for each game:
 
 ![Souls Series Diagram](/Souls%20Series.png)
@@ -50,6 +51,7 @@ Below are the UML diagrams for each game:
 - **Complete Diagrams**: Create and maintain detailed diagrams for each game in the Souls series, including Demon's Souls, Dark Souls (1, 2, 3), Bloodborne, Sekiro, and Elden Ring.
 - **Tips and Strategies**: Provide useful tips and strategies for players to enhance their gameplay experience.
 - **Community Contributions**: Encourage contributions from the community to expand and improve the content.
+
 
 
 
